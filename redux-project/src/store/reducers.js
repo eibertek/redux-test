@@ -12,6 +12,7 @@ export const LOAD_CARD_SUCCESS = "[CARD][LOAD] LOAD Action SUccess";
 export const LOAD_CARD_FAILURE = "load card failure";
 export const ONCHANGE_FORM = "[FORM][ONCHANGE] change form";
 export const SUBMIT_FORM = "[FORM][SUBMIT] submit form"
+const LOGIN_SUCCESS = 'LOGIN SUCCESS';
 
 export const PENDING = 'PENDING';
 export const SUCCESS = 'SUCCESS';
@@ -27,6 +28,8 @@ export default (store = initialStore, action) => {
         return { ...store, status: FAILURE, error: action.error }
     case ONCHANGE_FORM:
         return { ...store, form: { ...store.form, [action.name]:action.value, } };
+    case LOGIN_SUCCESS:
+        return { ...store, form: null }
     case SUBMIT_FORM:
         const card = {
             name: store.form.name,
